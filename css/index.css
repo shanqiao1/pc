@@ -1,5 +1,5 @@
 
-html,body{height: 100%;overflow: hidden;}
+html,body/*{height: 100%;overflow: hidden;}*/
 html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
 a{text-decoration: none;display: block;}
 li{list-style: none;}
@@ -9,11 +9,13 @@ img{display: block;}
 .clearfix{*zoom: 1;}
 .clearfix:after{content: "";display: block;clear: both;}
 #wrap{
-height: 100%;
+    /*position: relative;*/
+    height: 100%;
+
 }
 .header{
+   position: relative;
 
-  background: pink;
 }
 .header-main {
   width: 1100px;
@@ -34,8 +36,8 @@ height: 100%;
      margin-top: 50px;
  }
 .nav li{
-    position: relative;
-     float: left;
+   position: relative;
+    float: left;
     margin-left: 40px;
     cursor: pointer;
    }
@@ -53,6 +55,54 @@ height: 100%;
     top:0;
     width: 0;
     overflow: hidden;
-    transition: 1s;
+    transition: width 1s;
 
 }
+/*小箭头*/
+.arrows{
+    position: absolute;
+    left:50%;
+    bottom: -11px;
+    width: 21px;
+    height: 11px;
+    transition: left 1s;
+    background-image: url("../img/arrow.png");
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.content{
+    position: absolute;
+    top:80px;
+    bottom: 0;
+    left:0;
+    right: 0;
+
+}
+
+.content-main{
+
+    height: 500%;
+
+}
+
+.content-main>li{
+
+    height: 20%;
+    background: pink;
+}
+
+.content-main section{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -260px;
+    margin-left: -550px;
+    width: 1100px;
+    height: 520px;
+    background: red;
+}
+
+
+
+
