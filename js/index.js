@@ -129,17 +129,14 @@ window.addEventListener('DOMContentLoaded',function () {
                         homeCaruselNodes[nowindex].className = 'common-title right-show';
                         homeCaruselNodes[lastindex].className = 'common-title left-hide';
                     }else{
-                        homeCaruselNodes[nowindex].className = 'common-title right-hide';
-                        homeCaruselNodes[lastindex].className = 'common-title left-show';
+                        homeCaruselNodes[nowindex].className = 'common-title left-show';
+                        homeCaruselNodes[lastindex].className = 'common-title right-hide';
                     }
 
                     homePointNodes[lastindex].className= '';
                     this.className ='active';
 
                     lastindex = nowindex;
-
-
-
 
             }
         }
@@ -148,7 +145,7 @@ window.addEventListener('DOMContentLoaded',function () {
         };
         homeNode.onmouseleave = function () {
             autoPlay();
-        }
+        };
         autoPlay();
        function autoPlay() {
            timer=setInterval(function () {
@@ -161,7 +158,7 @@ window.addEventListener('DOMContentLoaded',function () {
                homePointNodes[nowindex].className ='active';
                lastindex = nowindex;
 
-           },2500)
+           },2500);
        }
     }
 })
