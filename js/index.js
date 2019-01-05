@@ -100,5 +100,68 @@ window.addEventListener('DOMContentLoaded',function () {
         contentUlNode.style.top = -contentHeight *nowindex +'px'
     }
 
+    firstViewHandle();
+    function firstViewHandle() {
+        var homeCaruselNodes = document.querySelectorAll('.home-carousel li');
+        var homePointNodes = document.querySelectorAll('.home-point li');
+        var homeNode = document.querySelector('.home');
 
+        var lastindex=0;
+        var nowindex=0;
+        var lastTime=0;
+        var timer = null;
+        for(var i=0;i<homePointNodes.length;i++){
+
+            homePointNodes[i].index= i;
+
+            homePointNodes[i].onclick=function () {
+                    /*当前时间*/
+                    var nowTime = Date.now();
+                    /*轮播小于两秒不生效*/
+                    if( nowTime-lastTime<=2000) return;
+                    /*同步上一次点击时间*/
+                    lastTime = nowTime;
+                    nowindex = this.index;
+                    var thar = this;
+                    if(nowindex === lastindex) return;
+
+                    if(nowindex > lastindex){
+                        homeCaruselNodes[nowindex].className = 'common-title right-show';
+                        homeCaruselNodes[lastindex].className = 'common-title left-hide';
+                    }else{
+                        homeCaruselNodes[nowindex].className = 'common-title right-hide';
+                        homeCaruselNodes[lastindex].className = 'common-title left-show';
+                    }
+
+                    homePointNodes[lastindex].className= '';
+                    this.className ='active';
+
+                    lastindex = nowindex;
+
+
+
+
+            }
+        }
+        homeNode.onmouseenter = function () {
+            clearInterval(timer);
+        };
+        homeNode.onmouseleave = function () {
+            autoPlay();
+        }
+        autoPlay();
+       function autoPlay() {
+           timer=setInterval(function () {
+               nowindex++;
+
+               if(nowindex>=4) nowindex=0;
+               homeCaruselNodes[nowindex].className = 'common-title right-show';
+               homeCaruselNodes[lastindex].className = 'common-title left-hide';
+               homePointNodes[lastindex].className= '';
+               homePointNodes[nowindex].className ='active';
+               lastindex = nowindex;
+
+           },2500)
+       }
+    }
 })
