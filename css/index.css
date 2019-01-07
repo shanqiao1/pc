@@ -12,9 +12,14 @@ img{display: block;}
 .common-title{
     color:#009ee0;
     font-size:80px;
-    line-height:0.8;
+    line-height: 0.8;
     font-weight:bold;
     letter-spacing:-5px;
+}
+.common-text{
+    color: white;
+    line-height: 1.5;
+    font-size: 15px;
 }
 
 
@@ -229,6 +234,73 @@ img{display: block;}
     50%{transform: translateX(40%) rotateY(-30deg) scale(.8)}
     100%{transform: translateZ(-200px); visibility: hidden}
 }
+.course-title{
+   margin: 50px;
+}
+.course-content{
+    width: 400px;
+    margin-left: 50px;
+}
+.course-List{
+    position: absolute;
+    top: 70px;
+    right:50px;
+    width: 480px;
+}
+.course-List li{
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 132px;
+
+
+}
+.course-List .back{
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    background: #009ee0;
+    padding: 15px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+    transition: transform 1s;
+    /*隐藏背面*/
+    backface-visibility: hidden;
+}
+.course-List .front{
+    height: 100%;
+    background-image: url("../img/pcwelt.png");
+    background-repeat: no-repeat;
+    background-position: center ;
+    transition: transform 1s;
+}
+.course-List li:hover .front{
+    transform: rotateY(180deg);
+}
+.course-List li:hover .back{
+    transform: rotateY(360deg);
+}
+.course-line li{
+    position: absolute;
+    top:65px;
+    width:9px;
+    height: 410px;
+    background-image: url("../img/plus_row.png");
+    background-repeat: no-repeat;
+
+}
+.course-line li:nth-child(1){right:45px;}
+.course-line li:nth-child(2){right:165px;}
+
+.course-line li:nth-child(3){right:285px;}
+
+.course-line li:nth-child(4){right:405px;}
+
+.course-line li:nth-child(5){right:525px;}
+
+
+
 
 
 

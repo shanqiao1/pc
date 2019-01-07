@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded',function () {
           contentUlNode.style.top = -contentHeight *nowindex +'px'
 
     }
-
+    move(1)
     /*内容区*/
     contentHandle();
     function contentHandle() {
@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded',function () {
 
     }
     }
-
+     /*窗口变化调整小箭头*/
     window.onresize = function () {
         arrowsNodes.style.left =  liNodes[nowindex].getBoundingClientRect().left + liNodes[nowindex].offsetWidth/2 - arrowWidth+'px';
 
@@ -150,7 +150,7 @@ window.addEventListener('DOMContentLoaded',function () {
        function autoPlay() {
            timer=setInterval(function () {
                nowindex++;
-
+               lastTime = Date.now();
                if(nowindex>=4) nowindex=0;
                homeCaruselNodes[nowindex].className = 'common-title right-show';
                homeCaruselNodes[lastindex].className = 'common-title left-hide';
@@ -161,4 +161,6 @@ window.addEventListener('DOMContentLoaded',function () {
            },2500);
        }
     }
+
+
 })
